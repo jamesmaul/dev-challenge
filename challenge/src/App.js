@@ -5,6 +5,7 @@ import Orders from './Components/Orders';
 import Sales from './Components/Sales';
 import Header from './Components/Header';
 import Provider from './Context/Provider';
+import Workforce from './Components/Workforce';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Orders/>
         <Products/>
         <Equipaments/>
+        <Workforce/>
         </Provider>
         
       </header>

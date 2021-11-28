@@ -1,5 +1,5 @@
-// dados dos equipamentos
-export const equipaments =  [
+{
+ "equipaments":  [
   {
     "EquipmentID": "CMRP1",
     "EquipmentName": "Cortador Tampo Mesa Retangular Pequeno"
@@ -33,9 +33,9 @@ export const equipaments =  [
     "EquipmentName": "Montador de Gavetas"
   }
 ]
+}
 
-// dados dos materiais (produtos)
-export const materials =  
+{ "materials":
 [
   {
     "MaterialID": "GVT",
@@ -114,9 +114,9 @@ export const materials =
     "MaterialName": "Mesa Retangular 5m x 2m"
   }
 ]
-
+}
 // dados dos pedidos de compras 
-export const purchase_orders = [
+{ "purchase_orders": [
   {
     "PurchaseOrderID": 12289,
     "DeliveryDate": "10/03/2018",
@@ -262,9 +262,10 @@ export const purchase_orders = [
     "TotalCost": 100
   }
 ]
+}
 
 // dados dos pedidos de venda
-export const sales_order = [
+{ "sales_order": [
   {
     "SalesOrderID": 20450,
     "DeliveryDate": "01/09/2018",
@@ -392,9 +393,9 @@ export const sales_order = [
     "TotalValue": 1500
   }
 ]
-
+}
 // dados da mão de obra
-export const workforce = [
+{ "workforce" : [
   {
     "WorkforceID": 1,
     "Name": "Aline Velasques",
@@ -511,3 +512,4 @@ export const workforce = [
     "Shift": "Turno B"
   }
 ]
+}

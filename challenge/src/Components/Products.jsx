@@ -4,18 +4,19 @@ import Context from '../Context/Context';
 
 function Materials() {
     const { filterMap } = useContext(Context);
-    // if (!materials || materials.length === 0) {
-    //   return <p>No planets found</p>;
-    // }
+    
   return (
-    <div className="divs">
-       <h3>Produtos</h3>
-      {filterMap(materials, 'MaterialName').map((e) => (
+    <div className="border border-secondary">
+         <div className="bord">
+       <h5>Produtos</h5>
+       <p>(exibindo {filterMap(materials, 'MaterialName').length}/{materials.length} itens) </p>
+       </div>
+      {filterMap(materials, 'MaterialName').map((e, key) => (
         
-        <section>
-          <span>#{e.MaterialID}</span>
+        <section key={key} className="quadro">
+          <span  className="grifo">#{e.MaterialID}</span>
           {' '}
-          <span>{e.MaterialName}</span>
+          <span className="responsives">{e.MaterialName}</span>
         </section>
       ))}
 

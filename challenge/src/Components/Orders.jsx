@@ -5,15 +5,16 @@ import Context from '../Context/Context';
 function Orders() {
   const {  filterMap } = useContext(Context);
   return (
-    <div className="divs">
-       <h3>Pedidos de Compra</h3>
-      {filterMap(purchase_orders, 'MaterialName').map((e) => (
-        <section>
-          <span>#{e.PurchaseOrderID}</span>
-          {' '}
-          <span>{e.MaterialName}</span>
-          {' '}
-          <span>Qtd: {e.Quantity} pç</span>
+    <div className="border border-secondary">
+    <div className="bord">
+       <h5>Pedidos de Compra</h5>
+       <p>(exibindo {filterMap(purchase_orders, 'MaterialName').length}/{purchase_orders.length} itens)</p>
+       </div>
+      {filterMap(purchase_orders, 'MaterialName').map((e, key) => (
+       <section key={key} className="quadro">
+          <span className="grifo">#{e.PurchaseOrderID}</span>
+           <span className="responsives">{e.MaterialName}</span>
+           <span className="resp">Qtd: {e.Quantity} pç</span>
         </section>
       ))}
 
