@@ -1,13 +1,24 @@
-import { tab } from '@testing-library/user-event/dist/tab';
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import logo from './assets/logo_multisearch.png';
 import './index.css';
 import Table from './tables';
+import api from './API/api.js'
+import axios from 'axios';
 
 const equipamento = require("./data");
 const materiais = require("./materiais");
 
 function App() {
+
+  const [equipamentos, setEquipamentos] = React.useState(null);
+
+  React.useEffect(() => {
+    fetch("http://localhost:3001/equipamentos")
+      .then((res) => res.json())
+      .then((equipamentos) => setEquipamentos(equipamentos.message));
+  },[]);
+ 
+    
 
   const [busca, setBusca] = useState('');
 
