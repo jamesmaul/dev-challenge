@@ -1,18 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import logo from './assets/logo_multisearch.png';
 import './index.css';
-import Table from './tables';
-
-const Row = ({ record }) => {
-  const keys = Object.keys(record)
-  return (
-    <tr key={record.id}>
-      {
-        keys.map(key => <td key={key}>{record[key]}</td>)
-      }
-    </tr>
-  )
-}
 
 function App() {
 
@@ -29,38 +17,34 @@ function App() {
       fetch("/equipamentos")
         .then((res) => res.json())
         .then((json) => {
-          console.log(json)
           setEquipamentos(json);
         })
       fetch("/materiais")
         .then((res) => res.json())
         .then((json) => {
-          console.log(json)
           setMateriais(json);
         })
       fetch("/pedidoCompra")
         .then((res) => res.json())
         .then((json) => {
-          console.log(json)
           setPedidoCompra(json);
         })
       fetch("/pedidoVenda")
         .then((res) => res.json())
         .then((json) => {
-          console.log(json)
           setPedidoVenda(json);
         })
       fetch("/maoObra")
         .then((res) => res.json())
         .then((json) => {
-          console.log(json)
           setMaoObra(json);
         })
     }
     loadApi();
   }, []);
 
-  const tab = equipamentos.filter((valorAtual) => {
+  // ** FILTROS PARA BUSCA EM TEMPO REAL ** //
+  const tabE = equipamentos.filter((valorAtual) => {
     return valorAtual.EquipmentName.includes(busca);
   })
   const tabM = materiais.filter((valorAtual) => {
@@ -76,7 +60,6 @@ function App() {
     return valorAtual.Name.includes(busca);
   })
 
-
   return (
     <div className="App">
       <div className="img-logo">
@@ -90,14 +73,12 @@ function App() {
               <input className="form-control me-2" type="text" placeholder="Pesquisar" aria-label="Search"
                 value={busca}
                 onChange={(ev) => setBusca(ev.target.value)} />
-
             </form>
           </div>
         </nav>
       </div>
 
       <div className="tabelas">
-
         <table className="table table-hover">
           <thead className="table-light">
             <tr>
@@ -106,8 +87,7 @@ function App() {
             </tr>
           </thead>
           <tbody>
-
-            {tabPV.map(item => {
+            {tabPV.length === 0 ? <tr><td colSpan={3}>Nenhum resultado encontrado</td></tr> : tabPV.map(item => {
               return (
                 <tr>
                   <td key={item.id}>{item.SalesOrderID}</td>
@@ -116,7 +96,6 @@ function App() {
                 </tr>
               )
             })}
-
           </tbody>
         </table>
 
@@ -128,8 +107,7 @@ function App() {
             </tr>
           </thead>
           <tbody>
-
-            {tabPC.map(item => {
+            {tabPC.length === 0 ? <tr><td colSpan={3}>Nenhum resultado encontrado</td></tr> : tabPC.map(item => {
               return (
                 <tr>
                   <td key={item.id}>{item.PurchaseOrderID}</td>
@@ -139,7 +117,6 @@ function App() {
               )
 
             })}
-
           </tbody>
         </table>
 
@@ -151,9 +128,14 @@ function App() {
             </tr>
           </thead>
           <tbody>
-
-            {tabM.map(record => <Row record={record} />)}
-
+            {tabM.length === 0 ? <tr><td colSpan={3}>Nenhum resultado encontrado</td></tr> : tabM.map(item => {
+              return(
+                <tr>
+                  <td key={item.id}>{item.MaterialID}</td>
+                  <td key={item.id}>{item.MaterialName}</td>
+                </tr>
+              )
+            })}
           </tbody>
         </table>
 
@@ -161,13 +143,18 @@ function App() {
           <thead className="table-light">
             <tr>
               <th scope="col">Equipamentos</th>
-              <th scope="col" colSpan={3}>{Object.keys(tab).length} itens encontrados</th>
+              <th scope="col" colSpan={3}>{Object.keys(tabE).length} itens encontrados</th>
             </tr>
           </thead>
           <tbody>
-
-            {tab.map(record => <Row record={record} />)}
-
+            {tabE.length === 0 ? <tr><td colSpan={3}>Nenhum resultado encontrado</td></tr> : tabE.map(item => {
+              return(
+                <tr>
+                  <td key={item.id}>{item.EquipmentID}</td>
+                  <td key={item.id}>{item.EquipmentName}</td>
+                </tr>
+              )
+            })}
           </tbody>
         </table>
 
@@ -179,14 +166,18 @@ function App() {
             </tr>
           </thead>
           <tbody>
-
-            {!tabMO ? "Nenhum resultado encontrado" : tabMO.map(record => <Row record={record} />)}
-
+            {tabMO.length === 0 ? <tr><td colSpan={3}>Nenhum resultado encontrado</td></tr> : tabMO.map(item => {
+              return(
+                <tr>
+                  <td key={item.id}>{item.WorkforceID}</td>
+                  <td key={item.id}>{item.Name}</td>
+                  <td key={item.id}>{item.Shift}</td>
+                </tr>
+              )
+            })}
           </tbody>
         </table>
-
       </div>
-
     </div>
   )
 }

@@ -2,12 +2,10 @@
     display: flex; 
     justify-content: center;
 }
-
 .navbar{
     display: flex; 
     justify-content: center;
 }
-
 .tabelas{
     margin:5% 25%;
 }
