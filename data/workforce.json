@@ -6,7 +6,7 @@
   },
   {
     "WorkforceID": 2,
-    "Name": "Danilo Inês",
+    "Name": "Danilo InÃªs",
     "Shift": "Turno B"
   },
   {
@@ -16,7 +16,7 @@
   },
   {
     "WorkforceID": 4,
-    "Name": "Débora Pinhal",
+    "Name": "DÃ©bora Pinhal",
     "Shift": "Turno A"
   },
   {
@@ -56,7 +56,7 @@
   },
   {
     "WorkforceID": 12,
-    "Name": "Micael Díaz",
+    "Name": "Micael DÃ­az",
     "Shift": "Turno C"
   },
   {
@@ -66,12 +66,12 @@
   },
   {
     "WorkforceID": 14,
-    "Name": "Ofélia Avelar",
+    "Name": "OfÃ©lia Avelar",
     "Shift": "Turno B"
   },
   {
     "WorkforceID": 15,
-    "Name": "Paulo Brião",
+    "Name": "Paulo BriÃ£o",
     "Shift": "Turno C"
   },
   {
@@ -106,12 +106,12 @@
   },
   {
     "WorkforceID": 22,
-    "Name": "Zacarias Quirós",
+    "Name": "Zacarias QuirÃ³s",
     "Shift": "Turno A"
   },
   {
     "WorkforceID": 23,
-    "Name": "Énia Sousa",
+    "Name": "SÃ´nia Sousa",
     "Shift": "Turno B"
   }
 ]

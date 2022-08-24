@@ -85,7 +85,7 @@
     "DeliveryDate": "03/02/2018",
     "Supplier": "Ontomedia",
     "MaterialID": "PPM",
-    "MaterialName": "Pé para Mesa",
+    "MaterialName": "PÃ¡ para Mesa",
     "Quantity": 250,
     "TotalCost": 30
   },
@@ -94,7 +94,7 @@
     "DeliveryDate": "02/01/2018",
     "Supplier": "Newex",
     "MaterialID": "PPM",
-    "MaterialName": "Pé para Mesa",
+    "MaterialName": "PÃ¡ para Mesa",
     "Quantity": 250,
     "TotalCost": 39
   },
@@ -139,7 +139,7 @@
     "DeliveryDate": "10/07/2018",
     "Supplier": "Plussunin",
     "MaterialID": "PPM",
-    "MaterialName": "Pé para Mesa",
+    "MaterialName": "PÃ¡ para Mesa",
     "Quantity": 600,
     "TotalCost": 100
   }
