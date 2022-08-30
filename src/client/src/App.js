@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logo from './assets/logo_multisearch.png';
 import './index.css';
+import Table from './Table';
 
 function App() {
 
@@ -78,106 +79,20 @@ function App() {
         </nav>
       </div>
 
-      <div className="tabelas">
-        <table className="table table-hover">
-          <thead className="table-light">
-            <tr>
-              <th scope="col">Pedidos de Venda</th>
-              <th scope="col" colSpan={2}>{Object.keys(tabPV).length} itens encontrados</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tabPV.length === 0 ? <tr><td colSpan={3}>Nenhum resultado encontrado</td></tr> : tabPV.map(item => {
-              return (
-                <tr>
-                  <td key={item.id}>{item.SalesOrderID}</td>
-                  <td key={item.id}>{item.MaterialName}</td>
-                  <td key={item.id}>Qtde: {item.Quantity} pç</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-
-        <table className="table table-hover">
-          <thead className="table-light">
-            <tr>
-              <th scope="col">Pedidos de Compra</th>
-              <th scope="col" colSpan={3}>{Object.keys(tabPC).length} itens encontrados</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tabPC.length === 0 ? <tr><td colSpan={3}>Nenhum resultado encontrado</td></tr> : tabPC.map(item => {
-              return (
-                <tr>
-                  <td key={item.id}>{item.PurchaseOrderID}</td>
-                  <td key={item.id}>{item.MaterialName}</td>
-                  <td key={item.id}>Qtde: {item.Quantity} pç</td>
-                </tr>
-              )
-
-            })}
-          </tbody>
-        </table>
-
-        <table className="table table-hover">
-          <thead className="table-light">
-            <tr>
-              <th scope="col">Produtos</th>
-              <th scope="col" colSpan={3}>{Object.keys(tabM).length} itens encontrados</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tabM.length === 0 ? <tr><td colSpan={3}>Nenhum resultado encontrado</td></tr> : tabM.map(item => {
-              return(
-                <tr>
-                  <td key={item.id}>{item.MaterialID}</td>
-                  <td key={item.id}>{item.MaterialName}</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-
-        <table className="table table-hover">
-          <thead className="table-light">
-            <tr>
-              <th scope="col">Equipamentos</th>
-              <th scope="col" colSpan={3}>{Object.keys(tabE).length} itens encontrados</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tabE.length === 0 ? <tr><td colSpan={3}>Nenhum resultado encontrado</td></tr> : tabE.map(item => {
-              return(
-                <tr>
-                  <td key={item.id}>{item.EquipmentID}</td>
-                  <td key={item.id}>{item.EquipmentName}</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-
-        <table className="table table-hover">
-          <thead className="table-light">
-            <tr>
-              <th scope="col">Mão de Obra</th>
-              <th scope="col" colSpan={3}>{Object.keys(tabMO).length} itens encontrados</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tabMO.length === 0 ? <tr><td colSpan={3}>Nenhum resultado encontrado</td></tr> : tabMO.map(item => {
-              return(
-                <tr>
-                  <td key={item.id}>{item.WorkforceID}</td>
-                  <td key={item.id}>{item.Name}</td>
-                  <td key={item.id}>{item.Shift}</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
+      <div className="navbar-menu">
+        <nav>
+          <div className="nav nav-tabs" id="nav-tab" role="tablist">
+            <button className="nav-link active" id="nav-PV-tab" data-bs-toggle="tab" data-bs-target="#nav-PV" type="button" role="tab" aria-controls="nav-PV" aria-selected="true">Pedidos de Venda</button>
+            <button className="nav-link" id="nav-PC-tab" data-bs-toggle="tab" data-bs-target="#nav-PC" type="button" role="tab" aria-controls="nav-PC" aria-selected="false">Pedidos de Compra</button>
+            <button className="nav-link" id="nav-P-tab" data-bs-toggle="tab" data-bs-target="#nav-P" type="button" role="tab" aria-controls="nav-P" aria-selected="false">Produtos</button>
+            <button className="nav-link" id="nav-E-tab" data-bs-toggle="tab" data-bs-target="#nav-E" type="button" role="tab" aria-controls="nav-E" aria-selected="false">Equipamentos</button>
+            <button className="nav-link" id="nav-MO-tab" data-bs-toggle="tab" data-bs-target="#nav-MO" type="button" role="tab" aria-controls="nav-MO" aria-selected="false">Mão de Obra</button>
+          </div>
+        </nav>
       </div>
+
+      <Table tabE={tabE} tabM={tabM} tabPC={tabPC} tabPV={tabPV} tabMO={tabMO} />
+      
     </div>
   )
 }
