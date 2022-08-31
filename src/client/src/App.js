@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import logo from './assets/logo_multisearch.png';
 import './index.css';
 import Table from './Table';
+import Navbar from './Navbar';
+import Logo from './Logo';
 
 function App() {
 
@@ -63,10 +64,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="img-logo">
-        <img src={logo} alt='Logo MultiSearch' />
-      </div>
-
+      <Logo />
       <div className="navbar">
         <nav >
           <div className="container-fluid">
@@ -78,21 +76,31 @@ function App() {
           </div>
         </nav>
       </div>
+      <Navbar />
+      <div className="tab-content" id="nav-tabContent">
 
-      <div className="navbar-menu">
-        <nav>
-          <div className="nav nav-tabs" id="nav-tab" role="tablist">
-            <button className="nav-link active" id="nav-PV-tab" data-bs-toggle="tab" data-bs-target="#nav-PV" type="button" role="tab" aria-controls="nav-PV" aria-selected="true">Pedidos de Venda</button>
-            <button className="nav-link" id="nav-PC-tab" data-bs-toggle="tab" data-bs-target="#nav-PC" type="button" role="tab" aria-controls="nav-PC" aria-selected="false">Pedidos de Compra</button>
-            <button className="nav-link" id="nav-P-tab" data-bs-toggle="tab" data-bs-target="#nav-P" type="button" role="tab" aria-controls="nav-P" aria-selected="false">Produtos</button>
-            <button className="nav-link" id="nav-E-tab" data-bs-toggle="tab" data-bs-target="#nav-E" type="button" role="tab" aria-controls="nav-E" aria-selected="false">Equipamentos</button>
-            <button className="nav-link" id="nav-MO-tab" data-bs-toggle="tab" data-bs-target="#nav-MO" type="button" role="tab" aria-controls="nav-MO" aria-selected="false">Mão de Obra</button>
-          </div>
-        </nav>
+        <div className="tab-pane fade show active" id="nav-PV" role="tabpanel" aria-labelledby="nav-PV-tab" tabIndex="0">
+          <Table tab={tabPV} nome="Pedido de Venda" />
+        </div>
+
+        <div className="tab-pane fade" id="nav-PC" role="tabpanel" aria-labelledby="nav-PC-tab" tabIndex="0">
+          <Table tab={tabPC} nome="Pedido de Compra" />
+        </div>
+
+        <div className="tab-pane fade" id="nav-P" role="tabpanel" aria-labelledby="nav-P-tab" tabIndex="0">
+          <Table tab={tabM} nome="Produtos" />
+        </div>
+
+        <div className="tab-pane fade" id="nav-E" role="tabpanel" aria-labelledby="nav-E-tab" tabIndex="0">
+          <Table tab={tabE} nome="Equipamentos" />
+        </div>
+
+        <div className="tab-pane fade" id="nav-MO" role="tabpanel" aria-labelledby="nav-MO-tab" tabIndex="0">
+          <Table tab={tabMO} nome="Mão de Obra" />
+        </div>
+
       </div>
 
-      <Table tabE={tabE} tabM={tabM} tabPC={tabPC} tabPV={tabPV} tabMO={tabMO} />
-      
     </div>
   )
 }
