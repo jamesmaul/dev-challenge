@@ -1,27 +1,22 @@
 import React, { useEffect, useState } from "react";
+import Table from "../Table";
+import { fetchMaoObra } from '../api';
 
-function TabMO  (busca)  {
-
+function TabMO ({busca}) {
     const [maoObra, setMaoObra] = useState([]);
 
     useEffect(() => {
-
-        function loadApi() {
-            fetch("/maoObra")
-                .then((res) => res.json())
-                .then((json) => {
-                    setMaoObra(json);
-                })
+        async function loadAPI() {
+            const jsonMO = await fetchMaoObra();
+            setMaoObra(jsonMO);
         }
-        loadApi();
+        loadAPI();
     }, []);
 
-
-    maoObra.filter((valorAtual) => {
+    const tabMO = maoObra.filter((valorAtual) => {
         return valorAtual.Name.includes(busca);
-    })
-
-
+    });
+    return <Table tab={tabMO} nome="Mão de Obra" />
 }
 
 export default TabMO;

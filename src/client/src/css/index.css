@@ -2,11 +2,18 @@
     display: flex; 
     justify-content: center;
 }
-.navbar{
+.pesquisa{
     display: flex; 
     justify-content: center;
+    margin: 2% 30%;
 }
-
  .form-control{
-    width: 500px;
+    width: 100%;
  }
+ .tab-content{
+    margin: 0% 10%;
+ }
+ .navbar-menu{
+    margin: 0% 10%;
+ }
+ 

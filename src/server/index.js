@@ -57,7 +57,7 @@ fs.readFile("../data/workforce.json", 'utf8', (err, jsonString) => {
 
 //RETORNO DOS EQUIPAMENTOS
 app.get('/equipamentos', (req, res) => {
-    res.send(retornoEquipamentos)
+    res.send(retornoEquipamentos);
 })
 
 //RETORNO DOS MATERIAIS
@@ -79,8 +79,6 @@ app.get('/pedidoVenda', (req, res) => {
 app.get('/maoObra', (req, res) => {
     res.send(retornoMaoObra)
 })
-
-
 
 app.listen(port, () => {
     console.log('SUBIU')

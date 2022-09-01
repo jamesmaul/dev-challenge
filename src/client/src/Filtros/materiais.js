@@ -1,26 +1,22 @@
 import React, { useEffect, useState } from "react";
+import Table from "../Table";
+import { fetchMateriais } from '../api';
 
-function TabM(busca) {
-
+function TabM({ busca }) {
     const [materiais, setMateriais] = useState([]);
 
     useEffect(() => {
-
-        function loadApi() {
-            fetch("/materiais")
-                .then((res) => res.json())
-                .then((json) => {
-                    setMateriais(json);
-                })
+        async function loadAPI() {
+            const jsonM = await fetchMateriais();
+            setMateriais(jsonM);
         }
-        loadApi();
+        loadAPI();
     }, []);
 
-
-    materiais.filter((valorAtual) => {
+    const tabM = materiais.filter((valorAtual) => {
         return valorAtual.MaterialName.includes(busca);
-    })
-
+    });
+    return <Table tab={tabM} nome="Materiais" />
 }
 
 export default TabM;

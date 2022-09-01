@@ -1,26 +1,22 @@
 import React, { useEffect, useState } from "react";
+import Table from "../Table";
+import { fetchPedidoCompra } from '../api';
 
-function TabPC(busca) {
-
+function TabPC ({busca}) {
     const [pedidoCompra, setPedidoCompra] = useState([]);
 
     useEffect(() => {
-
-        function loadApi() {
-            fetch("/pedidoCompra")
-                .then((res) => res.json())
-                .then((json) => {
-                    setPedidoCompra(json);
-                })
+        async function loadAPI() {
+            const jsonPC = await fetchPedidoCompra();
+            setPedidoCompra(jsonPC);
         }
-        loadApi();
+        loadAPI();
     }, []);
 
-
-    pedidoCompra.filter((valorAtual) => {
+    const tabPC = pedidoCompra.filter((valorAtual) => {
         return valorAtual.MaterialName.includes(busca);
-    })
-
+    });
+    return <Table tab={tabPC} nome="Pedido de Compra" />
 }
 
 export default TabPC;

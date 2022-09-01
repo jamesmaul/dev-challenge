@@ -1,8 +1,5 @@
-
 const Navbar = () => {
-
     return (
-        
         <div className="navbar-menu">
             <nav>
                 <div className="nav nav-tabs" id="nav-tab" role="tablist">
@@ -14,7 +11,6 @@ const Navbar = () => {
                 </div>
             </nav>
         </div>
-
     )
 }
 

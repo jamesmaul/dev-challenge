@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from "react";
+import Table from "../Table";
+import { fetchEquipamentos } from '../api';
 
-function TabE (busca){
-
+function TabE({ busca }) {
     const [equipamentos, setEquipamentos] = useState([]);
 
     useEffect(() => {
-
-        function loadApi() {
-            fetch("/equipamentos")
-                .then((res) => res.json())
-                .then((json) => {
-                    setEquipamentos(json);
-                })
+        async function loadAPI() {
+            const jsonE = await fetchEquipamentos();
+            setEquipamentos(jsonE);
         }
-        loadApi();
+        loadAPI();
     }, []);
 
-    equipamentos.filter((valorAtual) => {
+    const tabE = equipamentos.filter((valorAtual) => {
         return valorAtual.EquipmentName.includes(busca);
-    })
+    });
+    return <Table tab={tabE} nome="Equipamentos" />
 }
 
 export default TabE;
